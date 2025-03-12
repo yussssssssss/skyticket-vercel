@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+:root {
+  --vh: 100vh;
+}
+
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: calc(var(--vh, 1vh) * 100);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ticket-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  padding: 10px;
+}
+
+.ticket-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.owner-name {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Bebas Neue", sans-serif;
+  color: white;
+  pointer-events: none;
+  letter-spacing: 2px;
+}
+
+.stamp-background {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.5);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.stamp img {
+  width: 150px;
+  height: 150px;
+}
+
+.animate-stamp {
+  animation: stampAppear 0.3s ease forwards;
+}
+
+.popup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 133, 0, 0.453);
+  border: 2px solid #008500;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.download-button:hover {
+  background-color: #0056b3;
+}
+
+@keyframes stampAppear {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.stamp {
+  width: 150px;
+  height: 150px;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .ticket-image {
+    width: 90vh;
+    height: auto;
+    transform: rotate(90deg);
+  }
+
+  .owner-name {
+    top: 25%;
+    left: 47%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
