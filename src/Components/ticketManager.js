@@ -39,7 +39,7 @@ const CHARACTER_ENUMS = new Set([
 
 const COLOR_ENUMS = new Set(["YESIL", "MAVI", "KIRMIZI", "MOR"]);
 
-const SPECIAL_ENUMS = new Set(["GECENIN_YILDIZI", "SKYDAYS"]);
+const SPECIAL_ENUMS = new Set(["GECENIN_YILDIZI", "SKYDAYS", "YILDIZJAM"]);
 
 const TicketManager = () => {
   const { ticketId } = useParams();
