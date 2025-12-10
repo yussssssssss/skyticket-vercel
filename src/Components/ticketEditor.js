@@ -8,6 +8,8 @@ const TicketEditor = ({ color, character, special, owner, onImageReady, imgRef }
     imagePath = require(`../Tickets/special/GECENIN_YILDIZI.png`);
   } else if (special === "SKYDAYS") {
     imagePath = require(`../Tickets/SKYDAYS/SKYDAYS.png`);
+  }else if (special == "ARTLAB"){
+    imagePath = require(`../Tickets/ARTLAB/ARTLAB.png`)
   } else if (special === "YILDIZJAM") {
     imagePath = require(`../Tickets/YILDIZJAM/YILDIZJAM.png`);
   } else {
@@ -51,6 +53,14 @@ const TicketEditor = ({ color, character, special, owner, onImageReady, imgRef }
           textY = canvas.height * 0.52;
           textColor = "darkgreen";
           fontSize = "200px";
+          ctx.font = `${fontSize} 'Bebas Neue'`;
+        }
+
+        if (special === "ARTLAB") {
+          textX = canvas.width * 0.077;
+          textY = canvas.height * 0.93;
+          textColor = "white";
+          fontSize = "280px";
           ctx.font = `${fontSize} 'Bebas Neue'`;
         }
 
