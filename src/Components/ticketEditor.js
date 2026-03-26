@@ -46,6 +46,7 @@ const TicketEditor = ({ color, character, special, owner, onImageReady, imgRef }
         let textY = canvas.height * 0.6;
         let textColor = "white";
         let fontSize = "80px";
+        let rotation = 0;
         ctx.font = `${fontSize} 'Bebas Neue'`;
 
         if (special === "GECENIN_YILDIZI") {
@@ -57,19 +58,20 @@ const TicketEditor = ({ color, character, special, owner, onImageReady, imgRef }
         }
 
         if (special === "ARTLAB") {
-          textX = canvas.width * 0.077;
-          textY = canvas.height * 0.93;
+          textX = canvas.width * 0.1;
+          textY = canvas.height * 0.1;
           textColor = "white";
           fontSize = "280px";
           ctx.font = `${fontSize} 'Bebas Neue'`;
         }
 
         if (special === "SKYDAYS") {
-          textX = canvas.width * 0.425;
-          textY = canvas.height * 0.88;
+          textX = canvas.width * 0.7;
+          textY = canvas.height * 0.5;
           textColor = "white";
-          fontSize = "80px";
-          ctx.font = `${fontSize} 'Antonio'`;
+          fontSize = "75px";
+          rotation = -Math.PI / 2;
+          ctx.font = `${fontSize} 'Bebas Neue'`;
         }
 
         if (special === "YILDIZJAM") {
@@ -81,12 +83,25 @@ const TicketEditor = ({ color, character, special, owner, onImageReady, imgRef }
         }
 
         ctx.fillStyle = textColor;
-        ctx.textAlign = special === "GECENIN_YILDIZI" ? "right" : "left";
-        ctx.fillText(
-          `${owner.firstName} ${owner.lastName}`.toUpperCase(),
-          textX,
-          textY
-        );
+        if (special === "GECENIN_YILDIZI") {
+          ctx.textAlign = "right";
+        } else if (special === "SKYDAYS") {
+          ctx.textAlign = "center";
+        } else {
+          ctx.textAlign = "left";
+        }
+
+        const textToDraw = `${owner.firstName} ${owner.lastName}`.toUpperCase();
+
+        ctx.save(); 
+        if (rotation !== 0) {
+          ctx.translate(textX, textY);
+          ctx.rotate(rotation);
+          ctx.fillText(textToDraw, 0, 0);
+        } else {
+          ctx.fillText(textToDraw, textX, textY);
+        }
+        ctx.restore(); 
 
         const finalImage = canvas.toDataURL("image/png");
         onImageReady(finalImage);
