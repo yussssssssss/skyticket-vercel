@@ -10,7 +10,7 @@ import stampSoundPath from "../Tickets/stamp-sound.mp3";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 
-const stampPath = require(`../Tickets/ticket-stamp2.png`); // Damga görseli
+const stampPath = require(`../Tickets/skydays_damga.png`); // Damga görseli
 
 const CHARACTER_ENUMS = new Set([
   "DEADPOOL",
