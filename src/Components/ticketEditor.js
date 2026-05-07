@@ -75,10 +75,10 @@ const TicketEditor = ({ color, character, special, owner, onImageReady, imgRef }
         }
 
         if (special === "YILDIZJAM") {
-          textX = canvas.width * 0.35;
-          textY = canvas.height * 0.90;
-          textColor = "#c776ea";
-          fontSize = "140px";
+          textX = canvas.width * 0.03;
+          textY = canvas.height * 0.94;
+          textColor = "#ffffff";
+          fontSize = "180px";
           ctx.font = `${fontSize} 'Prolamina'`; // Prolamina kontrolü
         }
 
